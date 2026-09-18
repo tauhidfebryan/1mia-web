@@ -12,7 +12,7 @@ const navLink = [
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between items-center px-8 border-b-white/30 bg-white/10 backdrop-blur-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 border-b-white/30 bg-violet-500/20 backdrop-blur-md rounded-2xl m-8">
       <div className="logo__container flex items-center gap-2">
         <Image
           className="logo__img"

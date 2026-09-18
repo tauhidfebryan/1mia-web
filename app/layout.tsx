@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import Script from "next/script";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -16,10 +17,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${poppins.variable} h-full antialiased`}>
-      <body className="{poppins.className} min-h-full flex flex-col">
+    <html lang="en" className="h-full">
+      <body
+        className={`${poppins.className} h-full flex flex-col`}
+      >
         <Navbar />
-        {children}
+        <Script
+          src="https://kit.fontawesome.com/a2d5d067ac.js"
+          crossOrigin="anonymous"
+        ></Script>
+        <main className="flex-1">{children}</main>
       </body>
     </html>
   );

@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
-:root {
-  --background: #735397;
-}
-
 @theme {
+  --color-violet: #735397;
   --color-paper: #f7f5f0;
 }
 
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 body {
-  background: var(--background);
+  background: var(--color-violet);
   font-family: var(--font-poppins), sans-serif;
 }

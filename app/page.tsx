@@ -1,5 +1,11 @@
-import Navbar from "@/components/navbar";
+import Hero from "@/components/hero";
+import Structure from "@/app/struktur/page";
 
 export default function Home() {
-  return <div></div>;
+  return (
+    <div className="">
+      <Hero />
+      <Structure />
+    </div>
+  );
 }
