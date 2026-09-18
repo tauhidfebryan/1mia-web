@@ -1,0 +1,10 @@
+[33m9750ad6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m HEAD@{0}: reset: moving to HEAD~2
+[33m310b376[m HEAD@{1}: commit: feat(layout): tambah icon medsos
+[33m38e354c[m HEAD@{2}: commit: feat(struktur): tambah halaman struktur kelas
+[33m9750ad6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m HEAD@{3}: commit: docs(readme): tambah dokumentasi dan struktur proyek
+[33md33c497[m HEAD@{4}: commit: feat(assets): tambah logo MIA
+[33mf982d74[m HEAD@{5}: commit: feat(navbar): tambah navbar
+[33mca55933[m HEAD@{6}: commit: feat(layout): tambah konfigurasi font Poppins
+[33mb005b54[m HEAD@{7}: commit: style(global): sesuaikan background dan warna kustom
+[33m5eec99c[m HEAD@{8}: commit: feat(mainpage): tambah halaman utama
+[33m343a05f[m HEAD@{9}: commit (initial): Initial commit from Create Next App

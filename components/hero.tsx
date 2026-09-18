@@ -1,13 +1,14 @@
 const Hero = () => {
   return (
     <section
+      id="hero"
       className="flex h-screen w-full justify-center items-center bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage:
           "linear-gradient(rgba(55, 65, 81, 0.65), rgba(17, 24, 39, 0.85)), url('/assets/background1.jpg')",
       }}
     >
-      <div className="flex flex-col gap-6 justify-center items-center text-center">
+      <div className="mt-20 flex flex-col gap-6 justify-center items-center text-center">
         <p className="font-semibold text-white bg-white/10 backdrop-blur-sm rounded-3xl py-2 px-4 w-fit">
           Class of 2026
         </p>

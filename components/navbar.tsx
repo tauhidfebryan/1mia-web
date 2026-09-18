@@ -1,18 +1,66 @@
+"use client";
+
 import Image from "next/image";
 import logo from "@/public/assets/MIAdyssey.png";
 import Link from "next/link";
-import { link } from "fs";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { useState } from "react";
 
 const navLink = [
   { name: "Beranda", href: "/" },
-  { name: "Struktur", href: "/struktur" },
+  { name: "Struktur", href: "#struktur" },
   { name: "Galeri", href: "/galeri" },
   { name: "Jadwal", href: "/jadwal" },
 ];
 
 const Navbar = () => {
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+
+  // Deteksi arah scroll manual
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+
+    if (latest > previous && latest > 150) {
+      setHidden(true);
+    } else if (latest < previous) {
+      setHidden(false);
+    }
+  });
+
+  // Handler khusus untuk klik menu
+  const handleScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    targetId: string,
+  ) => {
+    e.preventDefault();
+
+    const elem = document.getElementById(targetId);
+    if (elem) {
+      // Langsung kunci navbar biar gak bentrok
+      setHidden(true);
+
+      // Hitung posisi offset elemen (dikurangi offset 80px biar gak tertutup navbar)
+      const elementPosition = elem.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - 80;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 border-b-white/30 bg-violet-500/20 backdrop-blur-md rounded-2xl m-8">
+    <motion.nav
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: "-170%" }, // Menggeser navbar ke atas luar layar
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 border-b-white/30 bg-violet-500/20 backdrop-blur-md rounded-2xl m-8"
+    >
       <div className="logo__container flex items-center gap-2">
         <Image
           className="logo__img"
@@ -33,7 +81,7 @@ const Navbar = () => {
       <ul className="nav__link flex gap-12">
         {navLink.map((link) => (
           <li
-            className="text-paper font-semibold hover:translate-y-1.25 transition-all duration-300"
+            className="text-paper font-semibold hover:translate-y-1.25 transition-all duration-300 py-2"
             key={link.href}
           >
             <Link className="" href={link.href}>
@@ -42,7 +90,7 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-    </nav>
+    </motion.nav>
   );
 };
 

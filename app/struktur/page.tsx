@@ -1,6 +1,9 @@
 const Structure = () => {
   return (
-    <section className="py-16 bg-slate-900 min-h-screen text-white flex flex-col justify-center items-center">
+    <section
+      id="struktur"
+      className="py-16 bg-slate-900 min-h-screen text-white flex flex-col justify-center items-center"
+    >
       <h2 className="text-3xl font-bold mb-12">Struktur Kelas 1MIA</h2>
 
       {/* Level 1: Ketua Kelas */}
@@ -19,7 +22,6 @@ const Structure = () => {
         {/* Wakil Ketua */}
         <div className="relative flex flex-col items-center">
           {/* Garis vertikal penghubung dari garis horizontal ke kotak */}
-          <div className="absolute -top-8 w-0.5 h-8 bg-violet-500"></div>
           <div className="w-56 bg-white/10 border border-white/20 backdrop-blur-md px-5 py-3 rounded-xl text-center hover:scale-95 transition duration-300">
             <p className="text-xs text-gray-400 font-semibold">WAKIL KETUA</p>
             <p className="text-base font-bold">M. Izzat Al Fawaz</p>
@@ -41,7 +43,6 @@ const Structure = () => {
         {/* Bendahara */}
         <div className="relative flex flex-col items-center">
           {/* Garis vertikal atas */}
-          <div className="absolute -top-8 w-0.5 h-8 bg-violet-500"></div>
           <div className="w-56 bg-white/10 border border-white/20 backdrop-blur-md px-5 py-3 rounded-xl text-center hover:scale-95 transition duration-300">
             <p className="text-xs text-gray-400 font-semibold">BENDAHARA</p>
             <p className="text-base font-bold">Richa Karina</p>
