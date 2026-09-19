@@ -2,8 +2,12 @@ const Structure = () => {
   return (
     <section
       id="struktur"
-      className="py-16 bg-slate-900 min-h-screen text-white flex flex-col justify-center items-center"
+      className="py-16 h-screen text-white flex flex-col justify-center items-center"
+      style={{ background: "linear-gradient(135deg, #0f0720 0%, #1a112e 50%, #12082a 100%)" }}
     >
+      <p className="text-violet-400 text-xs font-semibold tracking-widest uppercase mb-3">
+        Kelas 1MIA · Manajemen Informatika
+      </p>
       <h2 className="text-3xl font-bold mb-12">Struktur Kelas 1MIA</h2>
 
       {/* Level 1: Ketua Kelas */}
