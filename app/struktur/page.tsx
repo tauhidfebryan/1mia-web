@@ -55,11 +55,11 @@ const Structure = () => {
           <p className="text-xs text-gray-400 font-semibold">
             Wakil Sekretaris
           </p>
-          <p className="text-base font-bold">Kezia Afita Sari</p>
+          <p className="text-base font-bold">Haritsa Nur Faizah</p>
         </div>
         <div className="w-56 bg-white/10 border border-white/20 backdrop-blur-md px-5 py-3 rounded-xl text-center hover:scale-95 transition duration-300">
           <p className="text-xs text-gray-400 font-semibold">Wakil Bendahara</p>
-          <p className="text-base font-bold">Sherlyn Shelfiani Putri</p>
+          <p className="text-base font-bold">Kezia Afita</p>
         </div>
       </div>
     </section>
