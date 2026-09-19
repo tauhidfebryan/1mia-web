@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import logo from "@/public/assets/MIAdyssey.png";
 import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState } from "react";
@@ -17,7 +16,6 @@ const Navbar = () => {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
 
-  // Deteksi arah scroll manual
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
 
@@ -28,26 +26,34 @@ const Navbar = () => {
     }
   });
 
-  // Handler khusus untuk klik menu
-  const handleScroll = (
+  const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    targetId: string,
+    href: string,
   ) => {
-    e.preventDefault();
+    if (href === "#struktur") {
+      e.preventDefault();
 
-    const elem = document.getElementById(targetId);
-    if (elem) {
-      // Langsung kunci navbar biar gak bentrok
-      setHidden(true);
+      const target = document.getElementById("struktur");
 
-      // Hitung posisi offset elemen (dikurangi offset 80px biar gak tertutup navbar)
-      const elementPosition = elem.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - 80;
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+
+        window.history.replaceState(null, "", "#struktur");
+      }
+    }
+
+    if (href === "/") {
+      e.preventDefault();
 
       window.scrollTo({
-        top: offsetPosition,
+        top: 0,
         behavior: "smooth",
       });
+
+      window.history.replaceState(null, "", "/");
     }
   };
 
@@ -55,7 +61,7 @@ const Navbar = () => {
     <motion.nav
       variants={{
         visible: { y: 0 },
-        hidden: { y: "-170%" }, // Menggeser navbar ke atas luar layar
+        hidden: { y: "-170%" },
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
@@ -70,8 +76,10 @@ const Navbar = () => {
           height={100}
           loading="eager"
         />
+
         <div className="flex flex-col">
           <h1 className="text-2xl font-bold text-paper">1MIA</h1>
+
           <h2 className="text-sm font-semibold text-paper">
             Manajemen Informatika
           </h2>
@@ -84,7 +92,10 @@ const Navbar = () => {
             className="text-paper font-semibold hover:translate-y-1.25 transition-all duration-300 py-2"
             key={link.href}
           >
-            <Link className="" href={link.href}>
+            <Link
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
+            >
               {link.name}
             </Link>
           </li>
