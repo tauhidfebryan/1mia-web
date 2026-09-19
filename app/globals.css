@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+:root {
+  --background: #0f0720;
+  --foreground: #ffffff;
+}
+
 @theme {
   --color-violet: #735397;
   --color-paper: #f7f5f0;
@@ -12,6 +17,8 @@ html {
 }
 
 body {
-  background: var(--color-violet);
+  background: linear-gradient(135deg, #0f0720 0%, #1a112e 50%, #12082a 100%);
+  color: var(--foreground);
+  min-height: 100vh;
   font-family: var(--font-poppins), sans-serif;
 }
